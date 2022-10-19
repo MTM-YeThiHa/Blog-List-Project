@@ -3,14 +3,13 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher  } from '@angular/material/core';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
 })
+export class ForgotPasswordComponent implements OnInit {
 
-export class LoginComponent implements OnInit {
   loginForm: FormGroup | any;
   username = '';
   password = '';
@@ -40,8 +39,8 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  register() {
-    this.router.navigate(['register']);
+  forgotpassword() {
+    this.router.navigate(['forgotpassword']);
   }
 
 }
@@ -51,4 +50,5 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
+
 }

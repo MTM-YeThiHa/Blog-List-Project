@@ -17,7 +17,7 @@ import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
-import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -32,6 +32,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
+import { CsvModule } from '@ctrl/ngx-csv';
+import { DownloadSvgComponent } from './download-svg/download-svg.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -50,7 +55,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     PostComponent,
     PostDetailsComponent,
     PostAddComponent,
-    PostEditComponent
+    PostEditComponent,
+    DownloadSvgComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +77,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatFormFieldModule,
     MatMenuModule,
     MatToolbarModule,
+    MatGridListModule,
+    MatSelectModule,
+    CsvModule
 
   ],
   providers: [

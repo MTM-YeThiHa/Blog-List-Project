@@ -7,6 +7,6 @@ export class Post {
     postContent!: string;
     postReference!: string;
     postImgUrl!: string;
-    created!: Date;
-    updated!: Date;
+    created: Date | null |undefined;
+    updated: Date | null | undefined;
   }

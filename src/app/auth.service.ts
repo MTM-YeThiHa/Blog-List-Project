@@ -19,7 +19,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
-    return this.http.post<any>(apiUrl + 'login', data)
+    return this.http.post<any>(`${apiUrl}/login`, data)
       .pipe(
         tap(_ => {
           this.isLoggedIn.emit(true);
@@ -41,7 +41,7 @@ export class AuthService {
   }
   
   register(data: any): Observable<any> {
-    return this.http.post<any>(apiUrl + 'register', data)
+    return this.http.post<any>(`${apiUrl}/register `, data)
       .pipe(
         tap(_ => this.log('login')),
         catchError(this.handleError('login', []))
@@ -61,5 +61,4 @@ export class AuthService {
   private log(message: string) {
     console.log(message);
   }
-
 }

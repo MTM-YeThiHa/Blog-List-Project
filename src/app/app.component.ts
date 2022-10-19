@@ -9,15 +9,16 @@ import { AuthService } from './auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  
-  constructor( private api: HomeService, private authService: AuthService, private router: Router) { }
-
+export class AppComponent implements OnInit {
+  title = 'client';
   categories: Category[] = [];
   loginStatus = false;
 
+  constructor(private api: HomeService, private authService: AuthService, private router: Router) { }
+
   ngOnInit() {
     this.authService.isLoggedIn.subscribe((status: any) => {
+      console.log(status);
       if (status === true) {
         this.loginStatus = true;
       } else {
@@ -41,5 +42,4 @@ export class AppComponent implements OnInit{
         console.log(err);
       });
   }
-
 }

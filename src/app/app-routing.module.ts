@@ -14,23 +14,27 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
+import { AuthGuard } from './auth/auth.guard';
+import { DownloadSvgComponent } from './download-svg/download-svg.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'home',
     component: HomeComponent,
-    data: { title: 'Blog Home'}
+    data: { title: 'Blog Home' }
   },
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     component: AdminComponent,
-    data: { title: 'Blog Admin'}
+    data: { title: 'Blog Admin' }
   },
   {
     path: 'bycategory/:id',
@@ -54,43 +58,62 @@ const routes: Routes = [
   },
   {
     path: 'category',
+    canActivate: [AuthGuard],
     component: CategoryComponent,
     data: { title: 'Category' }
   },
   {
     path: 'category/details/:id',
+    canActivate: [AuthGuard],
     component: CategoryDetailsComponent,
     data: { title: 'Category Details' }
   },
   {
     path: 'category/add',
+    canActivate: [AuthGuard],
     component: CategoryAddComponent,
     data: { title: 'Category Add' }
   },
   {
     path: 'category/edit/:id',
+    canActivate: [AuthGuard],
     component: CategoryEditComponent,
     data: { title: 'Category Edit' }
   },
   {
     path: 'post',
+    canActivate: [AuthGuard],
     component: PostComponent,
     data: { title: 'Post' }
   },
   {
     path: 'post/details/:id',
+    canActivate: [AuthGuard],
     component: PostDetailsComponent,
     data: { title: 'Post Details' }
   },
   {
     path: 'post/add',
+    canActivate: [AuthGuard],
     component: PostAddComponent,
     data: { title: 'Post Add' }
   },
   {
     path: 'post/edit/:id',
+    canActivate: [AuthGuard],
     component: PostEditComponent,
     data: { title: 'Post Edit' }
+  },
+  {
+    path: 'downloadsvg',
+    canActivate: [AuthGuard],
+    component: DownloadSvgComponent,
+    data: { title: 'Download SVG' }
+  },
+  {
+    path: 'forgotpassword',
+    component: ForgotPasswordComponent,
+    data: { title: 'Forgot Password'}
   }
 ];
 
